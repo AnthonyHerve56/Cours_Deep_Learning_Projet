@@ -1,11 +1,9 @@
-from Generer_un_csv import generer_un_csv
-
+from Generer_un_csv import GenererUnCsv
 
 if __name__ == "__main__":
-    print("Hello world")
-    test=generer_un_csv()
-    print(test.generer_le_titre())
-         
+    nb_lignes=int(input("Combien de lignes de lignes ? "))
 
-    
-    
+    csv_gen = GenererUnCsv()
+    resultat = csv_gen.generer_csv(nb_lignes)
+    print(f"resultat = {resultat}")
+

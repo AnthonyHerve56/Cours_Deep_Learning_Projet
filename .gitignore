@@ -182,3 +182,4 @@ cython_debug/
 
 deep_learning_venv/
 .deep_learning_venv/
+*.csv
