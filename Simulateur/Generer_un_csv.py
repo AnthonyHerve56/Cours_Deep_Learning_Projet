@@ -14,7 +14,7 @@ class GenererUnCsv:
         """Retourne le titre du CSV"""
         return self.titre
 
-    def crawl(self, line_number, delay=0.1):
+    def crawl(self, nb_lignes:int, delay=0.1):
         """Simule la génération d'une ligne de données"""
         time.sleep(delay)  # petit délai pour simuler un traitement
         result = [
@@ -26,7 +26,7 @@ class GenererUnCsv:
         ]
         self.donnees.append(result)
 
-    def generer_donnees(self, nb_lignes):
+    def generer_donnees(self, nb_lignes:int):
         """Lance des threads pour générer nb_lignes de données"""
         threads = []
         for i in range(nb_lignes):
@@ -39,8 +39,10 @@ class GenererUnCsv:
 
         return self.donnees
 
-    def generer_csv(self, nb_lignes):
+    def generer_csv(self, **kwargs):
         """Génère le CSV complet et l'écrit dans un fichier"""
+        print(kwargs)
+        nb_lignes=kwargs.get("nombres_de_lignes")
         titre = self.generer_le_titre()
         donnees = self.generer_donnees(nb_lignes)
 
